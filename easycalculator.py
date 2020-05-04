@@ -9,7 +9,7 @@ def factorial(n):
 def divPrime(num):
     lt = []
     times = []
-    print num, "=",
+    print (num, "=",end='')
     while num != 1:
         for i in range(2, int(num)+1):
             if i not in lt and num % i == 0: 
@@ -23,14 +23,14 @@ def divPrime(num):
                 break
     for i in range(0, len(lt)-1):
         if times[i] != 1:
-            print lt[i], "^", times[i], 'x',
+            print(lt[i], "^", times[i], 'x',end='')
         else:
-            print lt[i], "x",
+            print(lt[i], "x",end='')
     
     if times[-1] != 1:
-        print lt[-1] ,"^", times[-1]
+        print(lt[-1] ,"^", times[-1])
     else:
-        print lt[-1]
+        print( lt[-1])
     
 def gcd(a,b) :
     k = min(a,b)
@@ -46,18 +46,18 @@ def lcm(a,b):
 
 flag = True
 while flag == True:
-    r = raw_input(name+", 有吩咐吗?")
+    r = input(name+", 有吩咐吗?")
     try:
         if r[-1] == "!":
             try:
-                print factorial(int(r[:-1]))
+                print( factorial(int(r[:-1])))
             except:
-                print ""
+                print( "")
         elif r[:5] == "divP(" and r[-1] == ")":
             try:
                 divPrime(int(r[5:-1]))
             except:
-                print error
+                print (error)
         elif r[:4] == "gcd(" and r[-1] == ")":
             try:
                 for i in range(5, len(r)-1):
@@ -65,9 +65,9 @@ while flag == True:
                         a = int(r[4:i])
                         b = int(r[i+1:len(r)-1])
                         break
-                print gcd(a,b)
+                print (gcd(a,b))
             except:
-                print error
+                print (error)
         elif r[:4] == "lcm(" and r[-1] == ")":
             try:
                 for i in range(5, len(r)-1):
@@ -75,27 +75,27 @@ while flag == True:
                         a = int(r[4:i])
                         b = int(r[i+1:len(r)-1])
                         break
-                print lcm(a,b)
+                print( lcm(a,b))
             except:
-                print error
+                print (error)
         elif r == "help":
-            print "n的阶乘 = n!"
-            print "把n因式分解= divP(n)"
-            print "m和n的最大公因数 = gcd(m,n)"
-            print "m和n的最小公倍数 = lcm(m,n)"
-            print "把名字变成'name' = change(name)"
-            print "关闭计算器 = close"
+            print( "n的阶乘 = n!")
+            print( "把n因式分解= divP(n)")
+            print( "m和n的最大公因数 = gcd(m,n)")
+            print( "m和n的最小公倍数 = lcm(m,n)")
+            print( "把名字变成'name' = change(name)")
+            print( "关闭计算器 = close")
         elif r[:7] == "change(" and r[-1] == ")":
             try:
                 name = r[7:-1]
-                print "OK"
+                print( "OK")
             except:
-                print error
+                print( error)
         elif r == "close":
-            print "OK"
+            print( "OK")
             flag = False
         else:
-            print error
+            print( error)
     except:
-        print error
+        print( error)
     
