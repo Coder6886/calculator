@@ -7,6 +7,7 @@ print("1 = lcm")
 print("2 = factorial")
 print("3 = divPrime")
 print("4 = primes until")
+print("5 = // and %")
 def List(n):
     list1 = [2]   
     if n == 1:
@@ -62,6 +63,8 @@ def gcd(a,b) :
     return min(a,b)
 def lcm(a,b):
     return a*b/gcd(a,b)
+def divide(n,m):
+    print(n,"=",n//m,"x",m,"+",n%m)
 flag = True
 while flag == True:
     try:
@@ -104,6 +107,16 @@ while flag == True:
                 print(List(int(r[2:len(r)])))
             except:
                 print("err")
+        elif r[:2] == "5 ":
+            try:
+                for i in range(2,len(r)):
+                    if r[i] == " ":
+                        a = int(r[2:i])
+                        b = int(r[i+1:len(r)])
+                        break
+                divide(a,b)
+            except:
+                print("err")
         elif r == "/":
             flag = False
 
@@ -115,6 +128,8 @@ while flag == True:
             print("2 = factorial")
             print("3 = divPrime")
             print("4 = primes until")
+            print("5 = // and %")
+        
 
         else:
             try:
